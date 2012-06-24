@@ -6,9 +6,11 @@ The libnss-openvpn name service switch module resolves the name
 file.
 
 With this module, you can access to a given host from the openvpn server
-even if the IP address is not static:
+even if the IP address is not static.
 
 $ ssh foobar.vpn
+
+You don't need a ccd directory per host any more.
 
 Manual installation
 ===================
