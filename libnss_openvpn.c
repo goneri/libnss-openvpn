@@ -24,12 +24,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <nss.h>
-#include <sys/socket.h>
 #include <netdb.h>
 #include <stdlib.h>
 #include <errno.h>
 #include <arpa/inet.h>
-#include <netinet/in.h> 
 
 #define BUFLEN 256
 
@@ -52,7 +50,6 @@ enum nss_status _nss_openvpn_gethostbyname_r (
     FILE * fh = fopen(OPENVPN_STATUS_FILE, "r");
 
     char * t;
-    char my_buffer[BUFLEN+BUFLEN+2];
     char * current_ip;
     char * current_hostname;
     size_t idx, astart;
@@ -67,8 +64,6 @@ enum nss_status _nss_openvpn_gethostbyname_r (
 
     int in = 0;
     while (fgets(strbuf, BUFLEN, fh)) {
-        current_ip = my_buffer;
-        current_hostname = my_buffer+BUFLEN+1;
 
         if (strncmp(strbuf, "Virtual Address", 10) == 0) {
             in = 1;
