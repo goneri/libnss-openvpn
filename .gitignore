@@ -1,0 +1,3 @@
+libnss_openvpn.o
+libnss_openvpn.so.2
+*.swp

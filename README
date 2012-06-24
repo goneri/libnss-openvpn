@@ -1,0 +1,36 @@
+libnss-openvpn
+==============
+
+The libnss-openvpn name service switch module resolves the name
+“xxx.vpn” to the associated xxx machine in the openvpn.server.status
+file.
+
+With this module, you can access to a given host from the openvpn server
+even if the IP address is not static:
+
+$ ssh foobar.vpn
+
+Manual installation
+===================
+
+$ make && make install
+
+To make the system actually use this NSS module, add it to the list of
+hosts modules in /etc/nsswitch.conf:
+
+hosts:          files dns openvpn
+
+If you want users to be able to use the module, you will probably
+need to relax the security of openvpn.server.status:
+
+# chmod 644 /var/run/openvpn.server.status
+
+Credits
+=======
+
+libnss-openvpn is © 2012 Gonéri Le Bouder and licensed under the terms of
+the GNU General Public Licencse, version 2 or later (see LICENSE).
+
+It incorporates some code from these modules:
+   nss-mdns, © 2004 Lennart Poettering.
+   nss-gw-name, © 2010 Joachim Breitner.
