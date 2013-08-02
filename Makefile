@@ -1,4 +1,4 @@
-# Makefile for libnss-gw-name
+# Makefile for libnss-openvpn
 
 CC = gcc
 prefix = /usr
