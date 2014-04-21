@@ -42,7 +42,7 @@ hosts modules in /etc/nsswitch.conf:
 Credits
 =======
 
-libnss-openvpn is © 2012 Gonéri Le Bouder and licensed under the terms of
+libnss-openvpn is © 2012-2014 Gonéri Le Bouder and licensed under the terms of
 the GNU General Public Licencse, version 2 or later (see LICENSE).
 
 It incorporates some code from these modules:
