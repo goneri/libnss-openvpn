@@ -9,7 +9,7 @@ file.
 With this module, you can access to a given host from the openvpn server
 even if the IP address is not static.
 
-$ ssh foobar.vpn
+    $ ssh foobar.vpn
 
 You don't need a ccd directory per host any more.
 
@@ -32,12 +32,12 @@ need to relax the security of openvpn.server.status:
 Manual installation
 ===================
 
-$ make && make install
+    $ make && make install
 
 To make the system actually use this NSS module, add it to the list of
 hosts modules in /etc/nsswitch.conf:
 
-hosts:          files dns openvpn
+    hosts:          files dns openvpn
 
 Credits
 =======
