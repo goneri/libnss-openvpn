@@ -57,6 +57,9 @@ enum nss_status _nss_openvpn_gethostbyname_r (
     char strbuf[BUFLEN];
 
     if (!fh || strcmp(name+strlen(name)-4, ".vpn") != 0) {
+        if (fh) {
+            fclose(fh);
+        }
         *errnop = EINVAL;
         *h_errnop = NO_RECOVERY;
         return NSS_STATUS_UNAVAIL;
@@ -132,9 +135,12 @@ enum nss_status _nss_openvpn_gethostbyname_r (
         result->h_addr_list[0] = buffer + astart;
         result->h_addr_list[1] = NULL;
 
+        fclose(fh);
+
         return NSS_STATUS_SUCCESS;
     }
 
+    fclose(fh);
 
     *errnop = EINVAL;
     *h_errnop = NO_RECOVERY;
